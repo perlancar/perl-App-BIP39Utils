@@ -49,7 +49,7 @@ sub gen_bip39_mnemonic_phrase {
     my @words;
     my $length = $args{length} // 12;
     for (1..$length) {
-        my $word = $words[@words * Math::Random::Secure::rand()];
+        my $word = $all_words[@all_words * Math::Random::Secure::rand()];
         redo if grep { $word eq $_ } @words;
         push @words, $word;
     }
